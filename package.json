@@ -1,0 +1,26 @@
+{
+  "name": "discord-voice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/speech": "^0.9.3",
+    "apiai": "^4.0.2",
+    "aws-sdk": "^2.72.0",
+    "bufferutil": "^3.0.1",
+    "discord.js": "^11.1.0",
+    "erlpack": "^0.1.2",
+    "google-tts-api": "0.0.1",
+    "lbmrn-pcm-utils": "git+ssh://git@github.com/AviiNL/node-pcm-utils.git",
+    "libsodium-wrappers": "^0.5.1",
+    "longjohn": "^0.2.12",
+    "node-opus": "^0.2.6",
+    "sodium": "^2.0.1",
+    "uws": "^0.14.5"
+  }
+}
