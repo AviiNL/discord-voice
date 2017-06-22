@@ -1,28 +1,29 @@
 ﻿const Discord = require("discord.js");
 const Bot     = require('./bot');
 
-let paths, explode_char;
-if (/^win/.test(process.platform)) {
-    explode_char = ';';
-} else {
-    explode_char = ':';
+if(process.env.path) {
+    let paths, explode_char;
+    if (/^win/.test(process.platform)) {
+        explode_char = ';';
+    } else {
+        explode_char = ':';
+    }
+
+    paths = process.env.path.split(explode_char);
+    paths.push(__dirname + '/bin');
+
+    process.env.path = paths.join(explode_char);
 }
-
-paths = process.env.path.split(explode_char);
-paths.push(__dirname + '/bin');
-
-process.env.path = paths.join(explode_char);
 
 // Make a client to add events to
 const client = new Discord.Client();
 
-client.on("ready", function (s) {
+client.on("ready", function () {
 
     const bot = new Bot(client.user.username, "Ruben");
 
     let voice_channel, text_channel;
     for (let c of client.channels) {
-        let id = c[0];
 
         if (c[1] instanceof Discord.VoiceChannel) {
             if (c[1].name === 'Anduru Dignun') { //Anduru Dignun
@@ -50,7 +51,6 @@ client.on("ready", function (s) {
                 if (speaking && voice_channel.members.has(user.id)) {
 
                     let speaker    = voice_channel.members.find(val => val.id === user.id).displayName;
-                    let message_id = null;
 
                     bot.listen(receiver.createOpusStream(user), speaker)
                         .then((data) => {
