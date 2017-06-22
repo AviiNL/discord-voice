@@ -1,6 +1,9 @@
 ﻿const Discord = require("discord.js");
 const Bot     = require('./bot');
 
+process.env.GCLOUD_PROJECT                 = 'aviinl-159918';
+process.env.GOOGLE_APPLICATION_CREDENTIALS = `${__dirname}/auth/aviinl-ab7e90e76c88.json`;
+
 if(process.env.path) {
     let paths, explode_char;
     if (/^win/.test(process.platform)) {

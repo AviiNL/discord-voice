@@ -2,9 +2,6 @@ const speech = require('@google-cloud/speech')();
 delete require.cache[require.resolve('./lib/encoder')];
 const Encoder = require('./lib/encoder');
 
-process.env.GCLOUD_PROJECT                 = 'aviinl-159918';
-process.env.GOOGLE_APPLICATION_CREDENTIALS = __dirname + '/auth/aviinl-ab7e90e76c88.json';
-
 const request = {
     config:          {
         encoding:        'LINEAR16',
